@@ -1,21 +1,21 @@
-name: '1sa Terraform-Plan'
+name: '{{var.projectName}} Terraform-Plan'
 on:
   pull_request:
     branches:
       - development
       - master
     paths:
-      - .github/workflows/1sa-plan.yml
-      - towers/analytics/1sa.tfvars
+      - .github/workflows/{{var.projectName}}-plan.yml
+      - towers/analytics/{{var.projectName}}.tfvars
       - modules/**
 jobs:
   terraform-plan-job:
-    name: '1sa Terraform-Plan'
+    name: '{{var.projectName}} Terraform-Plan'
     uses: mondelez-ctiso/gcp-devops-templates/.github/workflows/terraform-common-plan.yml@v1.latest
     secrets: inherit
     with:
-      ENV_VAR_FILE: towers/analytics/1sa.tfvars towers/analytics/common.tfvars
-      PLAN_NAME: 1sa.tfplan
-      PREFIX: terraform/onboarding/analytics/1sa
+      ENV_VAR_FILE: towers/analytics/{{var.projectName}}.tfvars towers/analytics/common.tfvars
+      PLAN_NAME: {{var.projectName}}.tfplan
+      PREFIX: terraform/onboarding/analytics/{{var.projectName}}
       TF_STATE_BUCKET: core-org-tfstate-52fe
-      WORKFLOW_FILE: 1sa-plan.yml
+      WORKFLOW_FILE: {{var.projectName}}-plan.yml
