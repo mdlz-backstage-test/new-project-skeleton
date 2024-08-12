@@ -57,6 +57,5 @@ sed -i "s/\"{{var.${region}Envs}}\"/\"dev\",\"qa\",\"prd\"/g" "$project_name.tfv
 sed -i "s/{{var.${region}AppDevGrp}}/$app_dev_ad_group/g" "$project_name.tfvars"
 sed -i "s/{{var.${region}PwrDevGrp}}/$pwr_dev_ad_group/g" "$project_name.tfvars"
 sed -i "s/{{var.${region}PrdAPI}}/"dataplex.googleapis.com"/g" "$project_name.tfvars"
-sed -i "s/{{var.${region}PrdAPI}}/"dataplex.googleapis.com"/g" "$project_name.tfvars"
 
 sed -i "s/\"{{var.*}}\"//g" "$project_name.tfvars"
