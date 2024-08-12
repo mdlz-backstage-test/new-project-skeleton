@@ -50,12 +50,12 @@ echo "App Dev AD Group: $app_dev_ad_group"
 echo "Power Dev AD Group: $pwr_dev_ad_group"
 echo "Region: $region"
 
-cp project.tfvars new.tfvars
+cp skeleton/project.tfvars skeleton/new.tfvars
 
-sed -i "s/{{var.prjName}}/$project_name/g" "$project_name.tfvars"
-sed -i "s/\"{{var.${region}Envs}}\"/\"dev\",\"qa\",\"prd\"/g" "$project_name.tfvars"
-sed -i "s/{{var.${region}AppDevGrp}}/$app_dev_ad_group/g" "$project_name.tfvars"
-sed -i "s/{{var.${region}PwrDevGrp}}/$pwr_dev_ad_group/g" "$project_name.tfvars"
-sed -i "s/{{var.${region}PrdAPI}}/"dataplex.googleapis.com"/g" "$project_name.tfvars"
+sed -i "s/{{var.prjName}}/$project_name/g" skeleton/new.tfvars
+sed -i "s/\"{{var.${region}Envs}}\"/\"dev\",\"qa\",\"prd\"/g" skeleton/new.tfvars
+sed -i "s/{{var.${region}AppDevGrp}}/$app_dev_ad_group/g" skeleton/new.tfvars
+sed -i "s/{{var.${region}PwrDevGrp}}/$pwr_dev_ad_group/g" skeleton/new.tfvars
+sed -i "s/{{var.${region}PrdAPI}}/"dataplex.googleapis.com"/g" skeleton/new.tfvars
 
-sed -i "s/\"{{var.*}}\"//g" "$project_name.tfvars"
+sed -i "s/\"{{var.*}}\"//g" skeleton/new.tfvars
