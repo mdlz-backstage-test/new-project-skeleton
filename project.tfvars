@@ -1,10 +1,10 @@
 ##
-app_short_name = "1sa"
+app_short_name = "{{var.prjName}}"
 
 environment_map = {
-  meu   = []
-  amea  = []
-  amer  = ["prd", "mrqa","prpd"]
+  meu   = ["{{var.meuEnvs}}"]
+  amea  = ["{{var.ameaEnvs}}"]
+  amer  = ["{{var.amerEnvs}}"]
 }
 
 subnet_map  = {
@@ -14,21 +14,21 @@ subnet_map  = {
 }
 
 app_dev_team_group_emails = {
-  "amea"  = []
-  "meu"   = []
-  "amer"  = ["mdz-gcp-app-amer-analytics-datalake-appdev-grp@mdlz.com"]
+  "amea"  = ["{{var.ameaAppDevGrp}}"]
+  "meu"   = ["{{var.meuAppDevGrp}}"]
+  "amer"  = ["{{var.amerAppDevGrp}}"]
 }
 
 app_pwr_dev_team_group_emails = {
-  "amea"  = []
-  "meu"   = []
-  "amer"  = ["mdz-gcp-app-amer-analytics-datalake-pwrdev-grp@mdlz.com"]
+  "amea"  = ["{{var.ameaPwrDevGrp}}"]
+  "meu"   = ["{{var.meuPwrDevGrp}}"]
+  "amer"  = ["{{var.amerPwrDevGrp}}"]
 }
 
 business_standard_user_group_emails = {
   "amea"  = []
   "meu"   = []
-  "amer"  = ["mdz-gcp-amer-1sa-bkt-usr-grp@mdlz.com"]
+  "amer"  = []
 }
 
 admin_group_emails = {
@@ -80,7 +80,7 @@ override_map  = {
         additional_project_labels = {}
       }
       prd = {
-        additional_active_apis    = ["dataplex.googleapis.com"]
+        additional_active_apis    = ["{{var.amerPrdAPI}}"]
         additional_project_labels = {}
       }
       mrqa = {
@@ -103,7 +103,7 @@ override_map  = {
         additional_project_labels = {}
       }
       prd = {
-        additional_active_apis    = []
+        additional_active_apis    = ["{{var.ameaPrdAPI}}"]
         additional_project_labels = {}
       }
       mrqa = {
@@ -125,7 +125,7 @@ override_map  = {
         additional_project_labels = {}
       }
       prd = {
-        additional_active_apis    = []
+        additional_active_apis    = ["{{var.meuPrdAPI}}"]
         additional_project_labels = {}
       }
       mrqa = {
